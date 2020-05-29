@@ -12,4 +12,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  img_source = "./assets/images/accolite_logo.jpeg";
+
 }
