@@ -4,6 +4,7 @@ import com.accolite.assignment.domain.*;
 import com.accolite.assignment.repository.UserRepository;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,12 +19,15 @@ public class LoginResource{
     }
 
     @GetMapping("/login")
+    @CrossOrigin(origins="http://localhost:4200")
     public String loginFunction(){
         return "Login Page!";
     }
 
     @PostMapping("/login")
+    @CrossOrigin(origins="http://localhost:4200")
     public Boolean login(@RequestBody User user){
+
         List<User> users = new ArrayList<>();
         users = StreamSupport.stream(userRepository.findAll().spliterator(), false)
                 .collect(Collectors.toList());

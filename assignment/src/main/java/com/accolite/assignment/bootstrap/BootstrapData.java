@@ -19,11 +19,11 @@ public class BootstrapData implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         // Adding user1 to database
-        User user1 = new User("Nikhil", "nikhil@gmail.com", "nikhil");
+        User user1 = new User("Nikhil", "nikhil@gmail.com", "Nikhil@123");
         userRepository.save(user1);
 
         // Adding user2 to database
-        User user2 = new User("Sachin", "sachin@gmail.com", "sachin");
+        User user2 = new User("Sachin", "sachin@gmail.com", "Sachin@123");
         userRepository.save(user2);
 
         // Checking the number of users in Database
