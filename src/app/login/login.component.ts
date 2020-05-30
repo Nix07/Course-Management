@@ -12,7 +12,10 @@ export class LoginComponent implements OnInit {
   public response: any;
   constructor(private loginService: LoginService) { }
 
-  user: Object = {};
+  user = {
+    email: '',
+    password: ''
+  };
 
   submit(){
     this.loginService.checkCredentials(this.user.email, this.user.password).subscribe((response: any) => {
