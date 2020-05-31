@@ -9,6 +9,7 @@ import { LoginService } from '../login.service';
 export class CoursesComponent implements OnInit {
 
   loggedInFlag: string;
+  courses = ['Java Core', 'Spring', 'Angular', 'DMBS', 'UNIX'];
 
   constructor(private loginService: LoginService) { }
 
@@ -16,8 +17,8 @@ export class CoursesComponent implements OnInit {
     this.loginService.currentFlag.subscribe( (loggedInFlag: any)  => {
       this.loggedInFlag = loggedInFlag;
     });
-
-    alert(this.loggedInFlag);
   }
+
+  img_source = "./assets/images/courses.jpg";
 
 }
