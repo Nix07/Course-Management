@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  loggedInFlag: string;
+
+  constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
+    this.loginService.currentFlag.subscribe( (loggedInFlag: any) => {
+      this.loggedInFlag = loggedInFlag;
+    });
   }
 
   img_source = "./assets/images/accolite_logo.jpeg";
