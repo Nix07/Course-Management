@@ -1,7 +1,7 @@
-<div class="container" *ngIf="loggedInFlag=='true'">
+<div class="container" *ngIf="loggedInFlag">
     <div class="row">
         <div class="col-sm-3" *ngFor="let course of courses">
-            <a href="#" class="card">
+            <a routerLink="/courses/{{course}}" class="card">
                 <img class="card-img-top img-fluid" src="{{img_source}}" alt="Card image cap">
                 <div class="card-body">
                     <h4 class="card-title">{{course}}</h4>
@@ -14,6 +14,108 @@
         </div>
     </div>
 </div>
-<div class="container" *ngIf="loggedInFlag=='false'">
+<div class="container" *ngIf="!loggedInFlag">
     <h1>Please Login!</h1>
 </div>
+
+<!-- <div class="container">
+    <div class="title">
+        <h3 class="font-weight-bold">Java Course</h3>
+        <button class="btn btn-info ml-auto" data-toggle="modal" data-target="#editModal">Edit</button>
+        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+    </div>
+
+    <img src="{{img_source}}" class="img-fluid" alt="Course title">
+    <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    
+    <div>
+        <span class="font-weight-bold">Pre-requesite: </span>
+        <span class="badge badge-secondary">C</span>
+        <span class="badge badge-secondary">C++</span>
+        <span class="badge badge-secondary">Java</span>
+    </div>
+    
+    <div>
+        <span class="font-weight-bold">Course Instructor: </span>
+        <span>Nikhil Prakash</span>
+    </div>
+
+    <div>
+        <span class="font-weight-bold">Last Updated: </span>
+        <span>01/06/2020</span>
+    </div>
+
+    <div>
+        <span class="font-weight-bold">Feedbacks: </span>
+        <ol>
+            <li>
+                <span>Anonymous: </span>
+                <span class="font-weight-light comments" style="text-indent: -5em;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+            </li>
+            <li>
+                <span>Anonymous: </span>
+                <span class="font-weight-light comments">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+            </li>
+            <li>
+                <span>Anonymous: </span>
+                <span class="font-weight-light comments">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Delete Java Course</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you sure that you want to delete Java Course?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success">Confirm</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Edit Java Course</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+              <div class="form-group">
+                <label for="description">Description</label>
+              <textarea id="description" class="form-control" rows="5" cols="10"></textarea>
+              </div>
+              
+              <div class="form-group">
+                <label for="description">Pre-requesite (comma separated)</label>
+                <input type="text" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label for="description">Instructor Name</label>
+                <input type="text" class="form-control">
+              </div>
+              
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success">Confirm</button>
+        </div>
+      </div>
+    </div>
+</div> -->

@@ -8,7 +8,7 @@ import { LoginService } from '../login.service';
 })
 export class HeaderComponent implements OnInit {
 
-  loggedInFlag: string;
+  loggedInFlag: boolean;
 
   constructor(private loginService: LoginService) { }
 

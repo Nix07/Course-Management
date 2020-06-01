@@ -20,3 +20,28 @@
  .container>h1{
      text-align: center;
  }
+
+ /********************************/
+ .title{
+     display: flex;
+     flex-wrap: nowrap;
+ }
+
+ .title > .btn{
+     height: 2em;
+     margin-left: 1em;
+     line-height: 0.5em;
+ }
+ 
+ .description{
+    text-align: justify;
+    margin-top: 2%;
+ }
+
+ .badge{
+     margin: 2px;
+ }
+
+ .comments{
+    text-indent: -5em;
+ }

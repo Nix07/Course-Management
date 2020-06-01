@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       this.response = response;
       if(this.response == 'true'){
         alert("Login Successful!");
-        this.loginService.changeValue('true');
+        this.loginService.changeValue(true);
         this.router.navigateByUrl('/courses')
       }
       else{
