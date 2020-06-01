@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
+import { CoursesService } from '../courses.service';
 
 @Component({
   selector: 'app-courses',
@@ -9,15 +10,19 @@ import { LoginService } from '../login.service';
 export class CoursesComponent implements OnInit {
 
   loggedInFlag: boolean;
-  courses = ['Java Core', 'Spring', 'Angular', 'DMBS', 'UNIX'];
+  courses: any;
+  img_source = "./assets/images/courses.jpg";
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private coursesService: CoursesService) { }
 
   ngOnInit(): void {
     this.loginService.currentFlag.subscribe( (loggedInFlag: any)  => {
       this.loggedInFlag = loggedInFlag;
     });
-  }
-  img_source = "./assets/images/courses.jpg";
 
+    this.coursesService.getAllCourses(). subscribe((courses: any) => {
+      this.courses = courses;
+      console.log(this.courses);
+    });
+  }
 }
