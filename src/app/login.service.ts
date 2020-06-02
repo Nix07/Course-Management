@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 })
 export class LoginService {
 
-  private loggedInFlag = new BehaviorSubject<boolean>(false);
+  private loggedInFlag = new BehaviorSubject<boolean>(true);
   currentFlag = this.loggedInFlag.asObservable();
 
   email: any;

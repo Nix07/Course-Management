@@ -17,4 +17,14 @@ export class CoursesService {
     const URL = "http://localhost:8080/courses/" + name;
     return this.http.get(URL, {responseType: 'json'});
   }
+
+  deleteCourseByName(name: string){
+    const URL = "http://localhost:8080/courses/" + name;
+    return this.http.delete(URL, {responseType: 'json'});
+  }
+
+  editCourseByName(course: Object){
+    const URL = "http://localhost:8080/courses/" + course.name;
+    return this.http.put(URL, course, {responseType: 'json'});
+  }
 }

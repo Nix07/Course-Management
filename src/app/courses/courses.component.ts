@@ -20,7 +20,7 @@ export class CoursesComponent implements OnInit {
       this.loggedInFlag = loggedInFlag;
     });
 
-    this.coursesService.getAllCourses(). subscribe((courses: any) => {
+    this.coursesService.getAllCourses().subscribe((courses: any) => {
       this.courses = courses;
       console.log(this.courses);
     });
