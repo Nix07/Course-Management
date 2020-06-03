@@ -42,6 +42,27 @@
             </li>
         </ol>
     </div>
+
+    <div>
+        <span class="font-weight-bold">Course Materials</span>
+        <span>
+          <button class="btn btn-primary" id="createButton" (click)="createtTrainingMaterial()">Create</button>
+        </span>
+        <table class="table table-dark" *ngFor="let material of trainingMaterials">
+            <thead>
+              <tr>
+                <!-- <th scope="col"></th> -->
+                <th scope="col">Link: <a href="{{material.link}}">{{material.link}}</a></th>
+                <th scope="col">
+                    <button class="btn btn-info" id="materialEdit" (click)="editTrainingMaterial(material)">Edit</button> 
+                </th>
+                <th scope="col">
+                  <button class="btn btn-danger" id="materialDelete" (click)="deleteTrainingMaterial(material)">Delete</button>
+                </th>
+              </tr>
+            </thead>
+          </table>
+    </div>
 </div>
 
 <div class="container" *ngIf="!loggedInFlag">

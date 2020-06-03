@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CoursesService } from '../courses.service';
 import { LoginService } from '../login.service';
+import { TrainingMaterialsService } from '../training-materials.service';
 
 @Component({
   selector: 'app-course',
@@ -22,7 +23,15 @@ export class CourseComponent implements OnInit {
   img_source = "./assets/images/courses.jpg";
   loggedInFlag: any;
   router: any;
-  constructor(private loginService: LoginService, private route: ActivatedRoute, private coursesService: CoursesService, _router: Router) {
+  trainingMaterials: any;
+  confirmation: boolean;
+  material = {
+    id: -1,
+    courseName: '',
+    link: ''
+  }
+
+  constructor(private loginService: LoginService, private route: ActivatedRoute, private coursesService: CoursesService, _router: Router, private trainingService: TrainingMaterialsService) {
     this.router = _router;
    }
 
@@ -35,6 +44,10 @@ export class CourseComponent implements OnInit {
 
     this.coursesService.getCourseByName(this.course.courseName).subscribe((response: any) => {
       this.courseDetails = response;
+    });
+
+    this.trainingService.getTrainingMaterialsByCourseName(this.course.courseName).subscribe((response: any) => {
+      this.trainingMaterials = response;
     });
   }
 
@@ -61,6 +74,51 @@ export class CourseComponent implements OnInit {
       }
       else{
         alert('Edit unsuccessful');
+      }
+    });
+  }
+
+  editTrainingMaterial(currentMaterial: any){
+    currentMaterial.link = prompt('Please enter new training material\'s link', currentMaterial.link);
+    this.confirmation = confirm("Are you sure?");
+    if(this.confirmation){
+      this.trainingService.updateTrainingMaterial(currentMaterial).subscribe((response: any) => {
+        if(response){
+          alert('Edit successful');
+        }
+        else{
+          alert('Edit unsuccessful');
+        }
+      });
+    }
+  }
+
+  deleteTrainingMaterial(currentMaterial: any){
+    this.confirmation = confirm("Are you sure?");
+    if(this.confirmation){
+      this.trainingService.deleteTrainingMaterial(currentMaterial.id).subscribe((response: any) => {
+        if(response){
+          alert('Delete successful');
+          this.router.navigateByUrl('/courses');
+        }
+        else{
+          alert('Delete unsuccessful');
+        }
+      });
+    }
+  }
+
+  createtTrainingMaterial(){
+    this.material.id = 5;
+    this.material.courseName = this.course.courseName;
+    this.material.link = prompt("Please enter a training material's link", "");
+    this.trainingService.addTrainingMaterial(this.material).subscribe((response: any) => {
+      if(response){
+        alert('Addition Sucessfully');
+        this.router.navigateByUrl('/courses');
+      }
+      else{
+        alert('Addition Unsuccessful')
       }
     });
   }

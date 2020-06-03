@@ -29,4 +29,23 @@
 
 .container>h1{
     text-align: center;
-} 
+}
+
+#createButton{
+    height: 2em;
+    float: right;
+    margin-bottom: 1em;
+    line-height: 0.5em;
+}
+
+#materialEdit{
+    height: 2em;
+    float: right;
+    line-height: 0.5em;
+}
+
+#materialDelete{
+    height: 2em;
+    float: right;
+    line-height: 0.5em;
+}
