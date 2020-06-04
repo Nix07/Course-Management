@@ -19,6 +19,8 @@ export class CourseComponent implements OnInit {
     instructorName: ''
   }
 
+  materialHistory: any;
+  currentId: any;
   courseDetails: any;
   img_source = "./assets/images/courses.jpg";
   loggedInFlag: any;
@@ -48,6 +50,10 @@ export class CourseComponent implements OnInit {
 
     this.trainingService.getTrainingMaterialsByCourseName(this.course.courseName).subscribe((response: any) => {
       this.trainingMaterials = response;
+    });
+
+    this.trainingService.getAllTrainingMaterials().subscribe((response: any) => {
+      this.currentId = response.length;
     });
   }
 
@@ -109,7 +115,8 @@ export class CourseComponent implements OnInit {
   }
 
   createtTrainingMaterial(){
-    this.material.id = 5;
+    this.currentId = this.currentId + 1
+    this.material.id = this.currentId;
     this.material.courseName = this.course.courseName;
     this.material.link = prompt("Please enter a training material's link", "");
     this.trainingService.addTrainingMaterial(this.material).subscribe((response: any) => {
@@ -120,6 +127,13 @@ export class CourseComponent implements OnInit {
       else{
         alert('Addition Unsuccessful')
       }
+    });
+  }
+
+  viewHistory(currentMaterial: any){
+    this.trainingService.viewTrainingMaterialHistory(currentMaterial.id).subscribe((response: any) => {
+       this.materialHistory = response;
+       console.log(this.materialHistory);
     });
   }
 }

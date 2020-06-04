@@ -8,6 +8,11 @@ export class TrainingMaterialsService {
 
   constructor(private http: HttpClient) { }
 
+  getAllTrainingMaterials(){
+    const URL = "http://localhost:8080/training";
+    return this.http.get(URL, {responseType: 'json'});
+  }
+
   getTrainingMaterialsByCourseName(courseName: String){
     const URL = "http://localhost:8080/training/" + courseName;
     return this.http.get(URL, {responseType: 'json'});
@@ -26,5 +31,10 @@ export class TrainingMaterialsService {
   addTrainingMaterial(newMaterial: Object){
     const URL = "http://localhost:8080/training/";
     return this.http.post(URL, newMaterial, {responseType: 'json'});
+  }
+
+  viewTrainingMaterialHistory(id: any){
+    const URL = "http://localhost:8080/versions/" + id;
+    return this.http.get(URL, {responseType: 'json'});
   }
 }

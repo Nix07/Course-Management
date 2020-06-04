@@ -23,7 +23,7 @@ export class CoursesService {
     return this.http.delete(URL, {responseType: 'json'});
   }
 
-  editCourseByName(course: Object){
+  editCourseByName(course: any){
     const URL = "http://localhost:8080/courses/" + course.name;
     return this.http.put(URL, course, {responseType: 'json'});
   }
