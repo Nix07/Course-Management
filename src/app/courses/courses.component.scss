@@ -1,6 +1,7 @@
 .row {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 1em;
  }
  
  .row > div[class*='col-'] {
@@ -19,4 +20,15 @@
 
  .container>h1{
      text-align: center;
- } 
+ }
+
+ #createCourseButton{
+    height: 2em;
+    float: right;
+    line-height: 0.5em;
+ }
+
+ #coursesLabel{
+     font-weight: bolder;
+     font-size: 2em;
+ }

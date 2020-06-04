@@ -10,7 +10,7 @@
     
     <div>
         <span class="font-weight-bold">Pre-requesite: </span>
-        <span *ngFor="let prerequesite of courseDetails.preRequisite.split(',')">
+        <span *ngFor="let prerequesite of courseDetails.preRequisite">
             <span class="badge badge-secondary">{{prerequesite}}</span>
         </span>
     </div>
@@ -66,6 +66,22 @@
             </thead>
           </table>
     </div>
+
+    <div>
+      <span class="font-weight-bold">Participants</span>
+      <div class="table-responsive">
+        <table class="table-bordered">
+          <thead>
+            <th>Name</th>
+            <th>Email</th>
+          </thead>
+          <tbody *ngFor="let participant of participants">
+            <td>{{participant.participantName}}</td>
+            <td><a href="mailto:{{participant.email}}">{{participant.email}}</a></td>
+          </tbody>
+        </table>
+      </div>
+    </div>
 </div>
 
 <div class="container" *ngIf="!loggedInFlag">
@@ -111,13 +127,13 @@
     <div class="modal-dialog" role="document" style="max-width: 50%;">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="deleteModalLabel">Delete Java Course</h5>
+          <h5 class="modal-title" id="deleteModalLabel">Delete {{this.course.courseName}} Course</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          Are you sure that you want to delete Java Course?
+          Are you sure that you want to delete {{this.course.courseName}}?
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -131,7 +147,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="editModalLabel">Edit Java Course</h5>
+          <h5 class="modal-title" id="editModalLabel">Edit {{this.course.courseName}} Course</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

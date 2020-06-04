@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CoursesService } from '../courses.service';
 import { LoginService } from '../login.service';
 import { TrainingMaterialsService } from '../training-materials.service';
+import { ParticipantsService } from '../participants.service';
 
 @Component({
   selector: 'app-course',
@@ -21,6 +22,7 @@ export class CourseComponent implements OnInit {
 
   materialHistory: any;
   currentId: any;
+  participants: any;
   courseDetails: any;
   img_source = "./assets/images/courses.jpg";
   loggedInFlag: any;
@@ -33,7 +35,12 @@ export class CourseComponent implements OnInit {
     link: ''
   }
 
-  constructor(private loginService: LoginService, private route: ActivatedRoute, private coursesService: CoursesService, _router: Router, private trainingService: TrainingMaterialsService) {
+  constructor(private loginService: LoginService, 
+              private route: ActivatedRoute, 
+              private coursesService: CoursesService, 
+              _router: Router, 
+              private trainingService: TrainingMaterialsService,
+              private participantsService: ParticipantsService) {
     this.router = _router;
    }
 
@@ -46,6 +53,7 @@ export class CourseComponent implements OnInit {
 
     this.coursesService.getCourseByName(this.course.courseName).subscribe((response: any) => {
       this.courseDetails = response;
+      this.courseDetails.preRequisite = this.courseDetails.preRequisite.split(",");
     });
 
     this.trainingService.getTrainingMaterialsByCourseName(this.course.courseName).subscribe((response: any) => {
@@ -54,6 +62,10 @@ export class CourseComponent implements OnInit {
 
     this.trainingService.getAllTrainingMaterials().subscribe((response: any) => {
       this.currentId = response.length;
+    });
+
+    this.participantsService.getParticipantsByCourseName(this.course.courseName).subscribe((response:any) => {
+      this.participants = response;
     });
   }
 

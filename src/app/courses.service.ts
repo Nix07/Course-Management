@@ -13,6 +13,11 @@ export class CoursesService {
     return this.http.get(URL, {responseType: 'json'});
   }
 
+  createCourse(course: any){
+    const URL = "http://localhost:8080/courses"
+    return this.http.post(URL, course, {responseType: 'json'});
+  }
+
   getCourseByName(name: string){
     const URL = "http://localhost:8080/courses/" + name;
     return this.http.get(URL, {responseType: 'json'});
