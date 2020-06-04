@@ -8,6 +8,7 @@ import { LoginService } from '../login.service';
 })
 export class HeaderComponent implements OnInit {
 
+  img_source = "./assets/images/accolite_logo.jpeg";
   loggedInFlag: boolean;
 
   constructor(private loginService: LoginService) { }
@@ -18,6 +19,8 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  img_source = "./assets/images/accolite_logo.jpeg";
+  logOut(){
+    this.loginService.changeValue(false);
+  }
 
 }
