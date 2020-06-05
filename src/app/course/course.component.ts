@@ -22,6 +22,7 @@ export class CourseComponent implements OnInit {
 
   materialHistory: any;
   currentId: any;
+  flag: any;
   participants: any;
   courseDetails: any;
   img_source = "./assets/images/courses.jpg";
@@ -97,18 +98,22 @@ export class CourseComponent implements OnInit {
   }
 
   editTrainingMaterial(currentMaterial: any){
-    currentMaterial.link = prompt('Please enter new training material\'s link', currentMaterial.link);
-    this.confirmation = confirm("Are you sure?");
-    if(this.confirmation){
-      this.trainingService.updateTrainingMaterial(currentMaterial).subscribe((response: any) => {
-        if(response){
-          alert('Edit successful');
-        }
-        else{
-          alert('Edit unsuccessful');
-        }
-      });
+    this.flag = prompt('Please enter new training material\'s link', currentMaterial.link);
+    if(this.flag != null){
+      this.confirmation = confirm("Are you sure?");
+      if(this.confirmation == true){
+        currentMaterial.link = this.flag;
+        this.trainingService.updateTrainingMaterial(currentMaterial).subscribe((response: any) => {
+          if(response){
+            alert('Edit successful');
+          }
+          else{
+            alert('Edit unsuccessful');
+          }
+        });
+      }
     }
+    
   }
 
   deleteTrainingMaterial(currentMaterial: any){

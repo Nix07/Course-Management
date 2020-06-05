@@ -13,6 +13,7 @@ export class CoursesComponent implements OnInit {
   loggedInFlag: boolean;
   courses: any;
   router: any;
+  response: any;
   img_source = "./assets/images/courses.jpg";
   course = {
     courseName: '',
@@ -22,7 +23,9 @@ export class CoursesComponent implements OnInit {
   }
   mySubscription: any;
 
-  constructor(private loginService: LoginService, private coursesService: CoursesService, _router: Router) {
+  constructor(private loginService: LoginService, 
+    private coursesService: CoursesService, 
+    _router: Router) {
     this.router = _router;
    }
 
@@ -41,10 +44,9 @@ export class CoursesComponent implements OnInit {
     if(this.course.preRequisite.indexOf(",") == -1){
       this.course.preRequisite = this.course.preRequisite + ',';
     }
-    console.log(this.course);
     this.coursesService.createCourse(this.course).subscribe((response: any) => {
-      console.log(response);
-      if(response){
+      this.response = response;
+      if(this.response != null){
         alert('Creation Successful');
         this.router.navigateByUrl('/courses/'+response.courseName);
       }

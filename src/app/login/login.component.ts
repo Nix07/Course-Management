@@ -32,7 +32,8 @@ export class LoginComponent implements OnInit {
   submit(){
     this.loginService.checkCredentials(this.user.email, this.user.password).subscribe((response: any) => {
       this.response = response;
-      if(this.response == 'true'){
+      
+      if(this.response == true){
         alert("Login Successful!");
         this.loginService.changeValue(true);
         this.router.navigateByUrl('/courses');
