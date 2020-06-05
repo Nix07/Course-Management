@@ -7,17 +7,31 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CoursesService } from '../courses.service';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
+import { AppRoutingModule } from '../app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 class MockCoursesService{
   createCourse(course: any){
     return of({
+      courseName: "Angular",
+      description: "This is course on Angular.",
+      id: 1,
+      instructorName: "Sourav Raj",
+      lastModified: "08:20:30",
+      preRequisite: "C, C++"
+    });
+  }
+
+  getAllCourses(){
+    return of([{
       courseName: "Java Core",
       description: "This is course on Java Core.",
       id: 1,
       instructorName: "Sourav Raj",
       lastModified: "08:00:30",
       preRequisite: "C, C++"
-    });
+    }]);
   }
 }
 
@@ -31,12 +45,13 @@ fdescribe('CoursesComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ CoursesComponent ],
       imports: [
-        HttpClientTestingModule,
-        RouterTestingModule,
-        FormsModule
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule
       ],
       providers: [{
-        provider: CoursesService,
+        provide: CoursesService,
         useClass: MockCoursesService
       }]
     })
