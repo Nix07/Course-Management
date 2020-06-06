@@ -35,7 +35,7 @@ class MockCoursesService{
   }
 }
 
-fdescribe('CoursesComponent', () => {
+describe('CoursesComponent', () => {
   let component: CoursesComponent;
   let fixture: ComponentFixture<CoursesComponent>;
   let courseService: CoursesService;

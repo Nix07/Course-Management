@@ -36,6 +36,7 @@ export class CoursesComponent implements OnInit {
 
     this.coursesService.getAllCourses().subscribe((courses: any) => {
       this.courses = courses;
+      console.log(this.courses);
     });
   }
 

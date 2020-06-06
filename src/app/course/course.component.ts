@@ -22,6 +22,7 @@ export class CourseComponent implements OnInit {
 
   materialHistory: any;
   currentId: any;
+  response: any;
   flag: any;
   participants: any;
   courseDetails: any;
@@ -59,6 +60,7 @@ export class CourseComponent implements OnInit {
 
     this.trainingService.getTrainingMaterialsByCourseName(this.course.courseName).subscribe((response: any) => {
       this.trainingMaterials = response;
+      console.log(this.trainingMaterials);
     });
 
     this.trainingService.getAllTrainingMaterials().subscribe((response: any) => {
@@ -67,6 +69,7 @@ export class CourseComponent implements OnInit {
 
     this.participantsService.getParticipantsByCourseName(this.course.courseName).subscribe((response:any) => {
       this.participants = response;
+      console.log(this.participants);
     });
   }
 
@@ -104,6 +107,7 @@ export class CourseComponent implements OnInit {
       if(this.confirmation == true){
         currentMaterial.link = this.flag;
         this.trainingService.updateTrainingMaterial(currentMaterial).subscribe((response: any) => {
+          this.response = response;
           if(response){
             alert('Edit successful');
           }
@@ -120,6 +124,7 @@ export class CourseComponent implements OnInit {
     this.confirmation = confirm("Are you sure?");
     if(this.confirmation){
       this.trainingService.deleteTrainingMaterial(currentMaterial.id).subscribe((response: any) => {
+        this.response = response;
         if(response){
           alert('Delete successful');
           this.router.navigateByUrl('/courses');
