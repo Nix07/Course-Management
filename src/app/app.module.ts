@@ -13,6 +13,7 @@ import { LoginService } from './login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseComponent } from './course/course.component';
+import { TrendsComponent } from './trends/trends.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CourseComponent } from './course/course.component';
     LoginComponent,
     PageNotFoundComponent,
     CoursesComponent,
-    CourseComponent
+    CourseComponent,
+    TrendsComponent
   ],
   imports: [
     BrowserModule,

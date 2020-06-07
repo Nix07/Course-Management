@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseComponent } from './course/course.component';
+import { TrendsComponent } from './trends/trends.component';
 
 
 const routes: Routes = [{
@@ -13,6 +14,9 @@ const routes: Routes = [{
 }, {
   path: 'login',
   component: LoginComponent
+}, {
+  path: 'trends',
+  component: TrendsComponent
 }, {
   path: 'courses',
   component: CoursesComponent
