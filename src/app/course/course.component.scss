@@ -1,0 +1,63 @@
+.title{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.title > .btn{
+    height: 2em;
+    margin-left: 1em;
+    line-height: 0.5em;
+}
+
+.description{
+   text-align: justify;
+   margin-top: 2%;
+}
+
+.badge{
+    margin: 2px;
+}
+
+.comments{
+   text-indent: -5em;
+}
+
+.container{
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+.container>h1{
+    text-align: center;
+}
+
+#createButton{
+    height: 2em;
+    float: right;
+    margin-bottom: 1em;
+    line-height: 0.5em;
+}
+
+#materialEdit{
+    height: 2em;
+    float: right;
+    line-height: 0.5em;
+}
+
+#materialDelete{
+    height: 2em;
+    float: right;
+    line-height: 0.5em;
+}
+
+#materialHistory{
+    min-height: 2em;
+    float: right;
+    line-height: 0.5em;
+}
+
+.table-bordered{
+    width: 50%;
+    text-align: center;
+    margin: auto;
+}
