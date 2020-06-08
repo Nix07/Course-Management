@@ -51,16 +51,15 @@
         <table class="table table-dark" *ngFor="let material of trainingMaterials">
             <thead>
               <tr>
-                <!-- <th scope="col"></th> -->
-                <th scope="col">Link: <a href="{{material.link}}">{{material.link}}</a></th>
+                <th scope="col" id="link">Link: <a href="{{material.link}}">{{material.link}}</a></th>
                 <th scope="col">
-                  <button class="btn btn-light" id="materialHistory" (click)="viewHistory(material)" data-toggle="modal" data-target="#versionModals">View History</button> 
-              </th>
-                <th scope="col">
-                    <button class="btn btn-info" id="materialEdit" (click)="editTrainingMaterial(material)">Edit</button> 
+                  <button id="historyButton" class="btn btn-light customButton" (click)="viewHistory(material)" data-toggle="modal" data-target="#versionModals">View History</button> 
                 </th>
                 <th scope="col">
-                  <button class="btn btn-danger" id="materialDelete" (click)="deleteTrainingMaterial(material)">Delete</button>
+                    <button id="editButton" class="btn btn-info customButton" (click)="editTrainingMaterial(material)">Edit</button> 
+                </th>
+                <th scope="col">
+                  <button id="deleteButton" class="btn btn-danger customButton" (click)="deleteTrainingMaterial(material)">Delete</button>
                 </th>
               </tr>
             </thead>

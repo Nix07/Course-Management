@@ -38,21 +38,9 @@
     line-height: 0.5em;
 }
 
-#materialEdit{
+.customButton{
     height: 2em;
-    float: right;
-    line-height: 0.5em;
-}
-
-#materialDelete{
-    height: 2em;
-    float: right;
-    line-height: 0.5em;
-}
-
-#materialHistory{
-    min-height: 2em;
-    float: right;
+    // float: right;
     line-height: 0.5em;
 }
 
@@ -60,4 +48,25 @@
     width: 50%;
     text-align: center;
     margin: auto;
+}
+
+table{
+    table-layout: fixed;
+    width: 100%;  
+}
+
+#link{
+    width: 60%;
+}
+
+#historyButton{
+    width: 100%;
+}
+
+#editButton{
+    width: 100%;
+}
+
+#deleteButton{
+    width: 100%;
 }
