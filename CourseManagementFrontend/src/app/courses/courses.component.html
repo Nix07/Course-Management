@@ -3,8 +3,12 @@
         <span id="coursesLabel">Courses</span>
         <button class="btn btn-primary" id="createCourseButton" data-toggle="modal" data-target="#createModal">Create New Course</button>
     </div>
+    <form class="form-inline offset-md-4" id="search">
+        <input class="form-control" name="search" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="term">
+        <button class="btn btn-secondary" id="searchButton" type="submit">Search</button>
+    </form>
     <div class="row">
-        <div class="col-sm-3" *ngFor="let course of courses">
+        <div class="col-sm-3" *ngFor="let course of courses | filter: term">
             <a routerLink="/courses/{{course.courseName}}" class="card">
                 <img class="card-img-top img-fluid" src="{{img_source}}" alt="Card image cap">
                 <div class="card-body">

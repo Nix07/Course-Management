@@ -53,7 +53,16 @@ public class BootstrapData implements CommandLineRunner {
         courseRepository.save(course3);
 
         Course course4 = new Course("Spring", "This is course on Spring.", "C, C++", "Sourav Raj");
-        courseRepository.save(course3);
+        courseRepository.save(course4);
+
+        Course course5 = new Course("Agile", "This is an introductory course on Agile.", "Software Design Patterns", "Raghav Ram");
+        courseRepository.save(course5);
+
+        Course course6 = new Course("Advanced Angular", "This is an advanced course on Angular.", "Typescript, Angular", "Srikar Mardi");
+        courseRepository.save(course6);
+
+        Course course7 = new Course("Java Collections", "This is course on Java Collections.", "Core Java", "Rohit Kumar");
+        courseRepository.save(course7);
 
         TrainingMaterials material1 = new TrainingMaterials("Java Core", "https://drive.google.com/drive/u/1/folders/1AjZ3nq13v2gc3LnqsccuO8ffcSypyBwP");
         trainingMaterialsRepository.save((material1));
@@ -79,6 +88,18 @@ public class BootstrapData implements CommandLineRunner {
         TrainingMaterialVersioning material4Version = new TrainingMaterialVersioning(material4.getId(), material4.getCourseName(), material4.getLink(), new Date());
         trainingMaterialVersioningRepository.save(material4Version);
 
+        TrainingMaterials material5 = new TrainingMaterials("Advanced Angular", "https://drive.google.com/drive/u/1/folders/1AjZ3nq13v2gc3LnqsccuO8ffcSypyBwP");
+        trainingMaterialsRepository.save((material5));
+
+        TrainingMaterialVersioning material5Version = new TrainingMaterialVersioning(material5.getId(), material5.getCourseName(), material5.getLink(), new Date());
+        trainingMaterialVersioningRepository.save(material5Version);
+
+        TrainingMaterials material6 = new TrainingMaterials("Spring", "https://drive.google.com/drive/u/1/folders/1AjZ3nq13v2gc3LnqsccuO8ffcSypyBwP");
+        trainingMaterialsRepository.save((material6));
+
+        TrainingMaterialVersioning material6Version = new TrainingMaterialVersioning(material6.getId(), material6.getCourseName(), material6.getLink(), new Date());
+        trainingMaterialVersioningRepository.save(material6Version);
+
         Participants participant1 = new Participants("Java Core", "Ankit Jha", "ankit.jha@gmail.com");
         participantRepository.save(participant1);
 
@@ -93,6 +114,15 @@ public class BootstrapData implements CommandLineRunner {
 
         Participants participant5 = new Participants("Unix", "Rahul Raj", "rahul.raj@gmail.com");
         participantRepository.save(participant5);
+
+        Participants participant6 = new Participants("Advanced Angular", "Rahul Raj", "rahul.raj@gmail.com");
+        participantRepository.save(participant6);
+
+        Participants participant7 = new Participants("Spring", "Rahul Raj", "rahul.raj@gmail.com");
+        participantRepository.save(participant7);
+
+        Participants participant8 = new Participants("Java Collections", "Rahul Raj", "rahul.raj@gmail.com");
+        participantRepository.save(participant8);
 
         // Checking the number of users in Database
         System.out.println("Total users: " + userRepository.count());
