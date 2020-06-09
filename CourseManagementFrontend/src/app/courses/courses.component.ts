@@ -10,7 +10,7 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class CoursesComponent implements OnInit {
 
-  term: String;
+  term: string;
   loggedInFlag: boolean;
   courses: any;
   router: any;
